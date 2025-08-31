@@ -4,7 +4,8 @@ A simple social media-like app where users can:
 - Register & login
 - Create posts (text-based)
 - Like/unlike posts
-- View their own profile
+- View all posts
+- edit the own post
 
 ## Tech Stack
 - Node.js
