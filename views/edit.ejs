@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="w-full bg-zinc-900 min-h-screen text-white font-sans p-10">
+  
+  <!-- Navbar -->
+  <div class="w-full flex justify-end mb-8">
+    <a class="bg-red-500 hover:bg-red-600 transition rounded-lg px-4 py-2 text-sm font-medium shadow-md" href="/logout">Logout</a>
+  </div>
+
+  <!-- Greeting Section -->
+  <div class="max-w-2xl mx-auto text-center">
+    edit your post..
+  </div>
+
+  <!-- Post Form -->
+  <form action="/update/<%= post._id %>" method="post" class="max-w-2xl mx-auto mt-8">
+    <textarea name="content"class="p-4 outline-none w-full resize-none bg-zinc-800 border border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[120px]"><%=post.content%></textarea>
+    <input class="px-5 py-2 mt-3 bg-yellow-500 hover:bg-blue-600 transition rounded-lg shadow-md w-full cursor-pointer font-medium" type="submit" value="update Post">
+  </form>
+
+ 
+
+      
+    </div>
+  </div>
+
+</body>
+</html>

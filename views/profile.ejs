@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="w-full bg-zinc-900 min-h-screen text-white font-sans p-10">
+  
+  <!-- Navbar -->
+  <div class="w-full flex justify-end mb-8">
+    <a class="bg-red-500 hover:bg-red-600 transition rounded-lg px-4 py-2 text-sm font-medium shadow-md" href="/logout">Logout</a>
+  </div>
+
+  <!-- Greeting Section -->
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold tracking-tight">Hello, <%= user.name %> 😎</h2>
+    <p class="text-zinc-400 mt-2 text-lg">You can create a new post below.</p>
+  </div>
+
+  <!-- Post Form -->
+  <form action="/post" method="post" class="max-w-2xl mx-auto mt-8">
+    <textarea name="content"class="p-4 outline-none w-full resize-none bg-zinc-800 border border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[120px]"></textarea>
+    <input class="px-5 py-2 mt-3 bg-blue-500 hover:bg-blue-600 transition rounded-lg shadow-md w-full cursor-pointer font-medium" type="submit" value="Create Post">
+  </form>
+
+  <!-- Posts Section -->
+  <div class="posts max-w-2xl mx-auto mt-16">
+    <h3 class="text-zinc-400 mb-6 text-lg font-semibold">Your Posts</h3>
+    
+    <div class="space-y-6">
+      <% posts.reverse().forEach(function(post){ %>
+         <!-- Post -->
+      <div class="post p-6 rounded-xl bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition">
+        <h4 class="text-blue-500 font-semibold mb-3">@<%= post.user.username %></h4>
+        <p class="tracking-tight text-sm leading-relaxed"><%= post.content %></p>
+        <small class="mt-2 inline-block"><%= post.likes.length %> Likes</small>
+        <div class="btns flex gap-6 mt-1 ">
+          <a class="text-blue-500 hover:underline cursor-pointer"href="/like/<%= post._id %>">
+            <%= post.likes.indexOf(user._id)===-1 ?"❤️ Like":"😒 Unlike" %>
+          </a>
+          
+      <% if (post.user._id.toString() === user._id.toString()) { %>
+        <a href="/edit/<%= post._id %>">✏️ Edit</a>
+      <% } %>
+        </div>
+      </div>
+     <% })%>
+
+      
+    </div>
+  </div>
+
+</body>
+</html>
