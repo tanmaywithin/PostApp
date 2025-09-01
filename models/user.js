@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 
-mongoose.connect(`mongodb://127.0.0.1:27017/authapp`);
-
+// mongoose.connect(``);
+mongoose.connect("mongodb+srv://tanmaykhandelwal:Tanmay%402004@vibeshare.yfb3wda.mongodb.net/PostApp")
 const userSchema= mongoose.Schema({
     username : String,
     name:String,
