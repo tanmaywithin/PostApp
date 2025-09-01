@@ -4,6 +4,7 @@ const app=express();
 const path =require('path')
 const userModel=require("./models/user");
 const postModel=require("./models/post");
+const mongoose=require('mongoose');
 
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken')
