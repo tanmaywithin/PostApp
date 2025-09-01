@@ -2,6 +2,7 @@ const cookieParser = require('cookie-parser');
 const express= require('express');
 const app=express();
 const path =require('path')
+require("dotenv").config(); 
 const userModel=require("./models/user");
 const postModel=require("./models/post");
 const mongoose=require('mongoose');
