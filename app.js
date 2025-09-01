@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,'public')));
 app.use(cookieParser());
 
+require("dotenv").config();
+mongoose.connect(process.env.MONGO_URI);
+
 
 app.get("/",function(req,res){
     res.render("index");
