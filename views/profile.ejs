@@ -33,7 +33,7 @@
       <% posts.reverse().forEach(function(post){ %>
          <!-- Post -->
       <div class="post p-6 rounded-xl bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition">
-        <h4 class="text-blue-500 font-semibold mb-3">@<%= post.user.username %></h4>
+        <h4 class="text-blue-500 font-semibold mb-3">@ <%= post.user ? post.user.username : "Unknown User" %>></h4>
         <p class="tracking-tight text-sm leading-relaxed"><%= post.content %></p>
         <small class="mt-2 inline-block"><%= post.likes.length %> Likes</small>
         <div class="btns flex gap-6 mt-1 ">
