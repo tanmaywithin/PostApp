@@ -35,11 +35,14 @@ app.get("/profile",isLoggedIn,async (req,res)=>{
 
     // fetch all posts from all users 
     let posts = await postModel
-      .find({})
-      .populate("user")   
-      .sort({ createdAt: -1 });
+  .find({})
+  .populate("user")
+  .sort({ createdAt: -1 });
+
+    posts = posts.filter(post => post.user !== null);
 
     res.render("profile", { user, posts });
+
 });
 app.get("/like/:id",isLoggedIn,async (req,res)=>{
     let post = await postModel.findOne({ _id:req.params.id}).populate("user");
