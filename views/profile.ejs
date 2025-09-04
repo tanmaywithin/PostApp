@@ -41,7 +41,7 @@
             <%= post.likes.indexOf(user._id)===-1 ?"❤️ Like":"😒 Unlike" %>
           </a>
           
-      <% if (post.user._id.toString() === user._id.toString()) { %>
+      <% if (post.user && post.user._id == user._id) { %>
         <a href="/edit/<%= post._id %>">✏️ Edit</a>
       <% } %>
         </div>
